@@ -21,6 +21,11 @@ Deploying
     until kubectl get servicemonitors --all-namespaces ; do date; sleep 1; echo ""; done
     kubectl create -f manifests/
 
+Tear Down 
+
+    kubectl delete --ignore-not-found=true -f manifests/ -f manifests/setup
+
+Access
 
     kubectl --namespace monitoring port-forward svc/prometheus-k8s 9090
 
