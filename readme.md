@@ -36,5 +36,9 @@ Deploy resources
     kubectl config use-context docker-desktop
     kubectl create -f deployments/setup
     kubectl create -n k8s-nginx-example -f deployments
+
+Tear Down
+
     kubectl delete -n k8s-nginx-example -f deployments
+    kubectl delete namespaces k8s-nginx-example
 
