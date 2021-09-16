@@ -9,6 +9,8 @@ https://github.com/prometheus-operator/kube-prometheus#customizing-kube-promethe
     wget https://raw.githubusercontent.com/prometheus-operator/kube-prometheus/release-0.9/build.sh -O build.sh
     jb update
     ./build.sh example.jsonnet
+    ./build.sh service.jsonnet
+
 
 
     docker run --rm -v $(pwd):$(pwd) --workdir $(pwd) quay.io/coreos/jsonnet-ci jb update
@@ -28,6 +30,8 @@ Tear Down
 Access
 
     kubectl --namespace monitoring port-forward svc/prometheus-k8s 9090
+    kubectl --namespace monitoring port-forward svc/grafana 3000
+    kubectl --namespace monitoring port-forward svc/alertmanager-main 9093
 
 
 Deploy resources
