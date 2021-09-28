@@ -10,12 +10,10 @@ https://github.com/prometheus-operator/kube-prometheus#customizing-kube-promethe
     jb update
     ./build.sh example.jsonnet
     ./build.sh service.jsonnet
-
-
+    ./build.sh service-monitor.jsonnet
 
     docker run --rm -v $(pwd):$(pwd) --workdir $(pwd) quay.io/coreos/jsonnet-ci jb update
     docker run --rm -v $(pwd):$(pwd) --workdir $(pwd) quay.io/coreos/jsonnet-ci ./build.sh example.jsonnet
-
 
 Deploying
 
