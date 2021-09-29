@@ -12,33 +12,13 @@ local kp =
       common+: {
         namespace: 'monitoring',
       },
+      //prometheus+: {
+      //  namespaces: ['example-node-app'],
+      //},
       prometheus+: {
-        namespaces: ['example-node-app'],
+        namespaces: [],
       },
     },
-    exampleApplication: {
-    serviceMonitorMyNamespace: {
-      apiVersion: 'monitoring.coreos.com/v1',
-      kind: 'ServiceMonitor',
-      metadata: {
-        name: 'my-servicemonitor',
-        namespace: 'example-node-app',
-      },
-      spec: {
-        jobLabel: 'app',
-        endpoints: [
-          {
-            port: 'http',
-          },
-        ],
-        selector: {
-          matchLabels: {
-            app: 'node-app',
-          },
-        },
-      },
-    },
-  },
   };
 
 { 'setup/0namespace-namespace': kp.kubePrometheus.namespace } +
